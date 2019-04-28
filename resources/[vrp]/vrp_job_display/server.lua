@@ -20,18 +20,14 @@ end
 function Group_Display.event:playerJoinGroup(user, name, gtype)
     if gtype == "job" then
 		local job = vRP.EXT.Group:getGroupTitle(name)
-		--vRP.EXT.GUI.remote._setDivCss(user.source,"job",self.cfg.display_css)
+		
 		vRP.EXT.GUI.remote._setDivContent(user.source,"job",job)
     end
 end
 
 function Group_Display.event:playerLeaveGroup(user, name, gtype)
-	
-	print(gtype)
-	print(name)
     if gtype == "job" then
-	
-		vRP.EXT.GUI.remote._setDivContent(user.source,"job","")
+	vRP.EXT.GUI.remote._setDivContent(user.source,"job","")
     end
 end
 
