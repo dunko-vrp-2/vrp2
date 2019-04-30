@@ -71,8 +71,8 @@ function Group.User:removeGroup(name)
 
   -- trigger leave event
   local gtype = nil
-  if groupdef and groupdef._config then
-    gtype = groupdef._config.gtype 
+   if group and group._config then
+    gtype = group._config.gtype
   end
 
   groups[name] = nil -- remove reference
