@@ -34,6 +34,25 @@ end
 
 function police_onspawn(user)
   police_init(user)
+end 
+
+function mafia_init(user)
+	local weapons = {}
+	weapons["WEAPON_MICROSMG"] = {ammo=100}
+	weapons["WEAPON_BAT"] = {ammo=0}
+	weapons["WEAPON_PISTOL"] = {ammo=100}
+	vRP.EXT.PlayerState.remore._giveWeapons(user.source,weapons,true)
+end
+function mafia_onjoin(user)
+  mafia_init(user)
+end
+
+function mafia_onleave(user)
+  vRP.EXT.PlayerState.remote._giveWeapons(user.source,{},true)
+end
+
+function mafia_onspawn(user)
+  mafia_init(user)
 end
 
 cfg.groups = {
@@ -70,6 +89,23 @@ cfg.groups = {
     "player.calladmin",
     "player.store_weapons",
     "police.seizable" -- can be seized
+  }, 
+  
+   ["Mafia"] = {
+    _config = {
+      title = "Mafia",
+      gtype = "job",
+      onjoin = mafia_onjoin,
+      onspawn = mafia_onspawn,
+      onleave = mafia_onleave
+    },
+    "police.menu",
+    "mafia.whitelisted",
+    "police.handcuff",
+    "police.drag",
+    "police.putinveh",
+    "police.getoutveh",
+    "-player.store_weapons"
   },
   ["Police Officer"] = {
     _config = {
@@ -223,6 +259,9 @@ cfg.groups = {
     },
     ["police"] = {
     "police.whitelisted"
+  }, 
+    ["mafia"] = {
+    "mafia.whitelisted"
   },
     ["emergency"] = {
     "emergency.whitelisted"
@@ -260,6 +299,11 @@ cfg.selectors = {
   ["Police job"] = {
     _config = {x = 437.924987792969,y = -987.974182128906, z = 30.6896076202393, map_entity = {"PoI", {blip_id = 351, blip_color = 38, marker_id = 1}}},
     "police",
+    "citizen"
+  }, 
+   ["Mafia Job"] = {
+    _config = {x = 437.924987792969,y = -987.974182128906, z = 30.6896076202393, map_entity = {"PoI", {blip_id = 351, blip_color = 22, marker_id = 1}}},
+    "mafia",
     "citizen"
   },
   ["Emergency job"] = {
