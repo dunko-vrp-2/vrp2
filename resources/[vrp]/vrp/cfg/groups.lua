@@ -71,7 +71,7 @@ cfg.groups = {
     "player.store_weapons",
     "police.seizable" -- can be seized
   },
-  ["Patrol Officer"] = {
+  ["Police Officer"] = {
     _config = {
       title = "Police",
       gtype = "job",
@@ -101,7 +101,7 @@ cfg.groups = {
     "-police.seizable" -- negative permission, police can't seize itself, even if another group add the permission
 --    "mission.paycheck.police" -- basic mission
   },
-  ["Chief of Police"] = {
+  ["Police Chief"] = {
     _config = {
       title = "Police",
       gtype = "job",
@@ -131,7 +131,61 @@ cfg.groups = {
     "-police.seizable" -- negative permission, police can't seize itself, even if another group add the permission
 --    "mission.paycheck.police" -- basic mission
   },
-  ["Chief of EMS"] = {
+  ["Police Cadet"] = {
+    _config = {
+      title = "Police",
+      gtype = "job",
+      onjoin = police_onjoin,
+      onspawn = police_onspawn,
+      onleave = police_onleave
+    },
+    "police.menu",
+    "police.whitelisted",
+    "police.askid",
+    "police.cloakroom",
+    "police.pc",
+    "police.handcuff",
+    "police.drag",
+    "police.putinveh",
+    "police.getoutveh",
+    "police.check",
+    "police.service",
+    "police.wanted",
+    "police.seize",
+    "police.jail",
+    "police.fine",
+    "police.announce",
+    "police.vehicle",
+    "police.chest_seized",
+    "-player.store_weapons",
+    "-police.seizable" -- negative permission, police can't seize itself, even if another group add the permission
+--    "mission.paycheck.police" -- basic mission
+  },
+  ["EMS Chief"] = {
+    _config = {
+      title = "Emergency",
+      gtype = "job"
+    },
+    "emergency.revive",
+    "emergency.whitelisted",
+    "emergency.shop",
+    "emergency.service",
+    "emergency.vehicle",
+    "emergency.cloakroom"
+  },
+    ["Paramedic"] = {
+    _config = {
+      title = "Emergency",
+      gtype = "job"
+    },
+    "emergency.revive",
+    "emergency.whitelisted",
+    "emergency.shop",
+    "emergency.service",
+    "emergency.vehicle",
+    "emergency.cloakroom"
+  },
+    ["EMS Cadet"] = {
     _config = {
       title = "Emergency",
       gtype = "job"
